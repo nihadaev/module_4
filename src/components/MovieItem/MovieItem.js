@@ -3,13 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import './MovieItem.css';
 
 function MovieItem(props)  {
-        const { Title, Year, Poster,imdbID } = props;
-        const {saved} = useSelector(state => state)
+        const { Title, Year, Poster } = props;
         const dispatch = useDispatch()
         const saveItem = (e) => {
             e.preventDefault();
             dispatch({ type: 'SAVE', payload: props})
-            console.log(saved)
         }
 
         return (

@@ -1,6 +1,7 @@
 const initState = {
     data : [],
-    saved: []
+    saved: [],
+    lists: {}
 }
 
 export default function reducer (state = initState,action){
@@ -21,6 +22,10 @@ export default function reducer (state = initState,action){
         case 'DELETE' :
             return{
                 ...state, saved: state.saved.filter(el => el.imdbID !== action.payload)
+            }
+        case 'ADD_LIST':
+            return {
+                ...state, lists : action.payload
             }
         default : 
             return state
